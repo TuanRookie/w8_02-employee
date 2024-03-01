@@ -1,0 +1,4 @@
+-Vẽ màn hình yêu cầu đăng nhập trước khi truy cập vào ứng dụng
+-Người dùng cần thực hiện đăng nhập mới có thể truy cập vào các API yêu cầu xác thực
+-Nếu người dùng chưa đăng nhập mà cố tính truy cập vào các màn hình ứng dụng thì chương trình tự chuyển đến màn hình đăng nhập và yêu cầu người dùng phải đăng nhập trước
+-Áp dung UnitTest(Chưa hoàn thành)
