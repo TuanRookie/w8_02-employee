@@ -1,0 +1,240 @@
+.button-add {
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #067933;
+  padding: 0 16px;
+  border: unset;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button-add:hover {
+  background-color: #39ac66;
+}
+
+.button-add:active {
+  background-color: rgb(156, 213, 179);
+}
+
+.button-unselect {
+  background-color: #fff;
+  color: red;
+  border: unset;
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.button-unselect:hover {
+  background-color: #bdbdbd;
+}
+
+.button-delete-all {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  border: unset;
+  color: black;
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.button-delete-all p {
+  margin-left: 33px;
+  margin-right: 10px;
+}
+.button-delete-all:hover {
+  background-color: #bdbdbd;
+}
+
+.button-reload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.button-reload:hover {
+  background-color: #bdbdbd;
+  border-radius: 4px;
+}
+
+.button {
+  border-radius: 4px;
+  height: 36px;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+}
+
+.button-save {
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #50b83c;
+  color: #ffffff;
+}
+
+.button-default {
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: 1px solid rgb(132, 130, 134);
+  cursor: pointer;
+}
+
+.button-default:hover {
+  background-color: #1aa4c8;
+  border: none;
+}
+
+.button-cancel {
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: rgb(238, 238, 238);
+  padding: 0 16px;
+  border: unset;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.button-add-save {
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: rgb(238, 238, 238);
+  padding: 0 16px;
+  border: unset;
+  cursor: pointer;
+}
+
+.button-save-and-create {
+  min-width: 80px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #067933;
+  padding: 0 16px;
+  border: unset;
+  cursor: pointer;
+}
+
+.button-save-and-create:hover {
+  background-color: #39ac66;
+}
+
+.button-save-and-create:active {
+  background-color: rgb(156, 213, 179);
+}
+
+.button-edit {
+  width: 36px;
+  height: 36px;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  cursor: pointer;
+}
+
+.button-edit:hover {
+  background-color: #2680eb;
+  border-radius: 4px;
+}
+
+.button-delete {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-left: 16px;
+}
+
+.button-delete:hover {
+  background-color: #2680eb;
+  border-radius: 4px;
+}
+
+
+
+/* employee */
+
+.btn {
+  color: white;
+  background-color: #50b83c;
+  padding: 0 16px;
+  border: unset;
+  border-radius: 4px;
+  height: 36px;
+  min-width: 80px;
+}
+
+.btn:hover:not([disabled]) {
+  background-color: #73C663;
+  cursor:pointer;
+}
+
+.btn:active {
+  background-color: #409330;
+}
+
+.btn-with-icon{
+  padding-left:12px;
+  display:flex;
+  align-items: center;
+  gap:4px;
+}
+
+.btn-secondary {
+  background-color:white;
+  color:black;
+  border: 1px solid rgb(238, 238, 238);
+}
+.btn-secondary:hover:not([disabled]) {
+  background-color:#EEEEEE;
+  cursor:pointer;
+}
+.btn-secondary:active {
+  background-color:#E0E0E0;
+}
+/**/
+.icon-btn{
+  width:36px;
+  height:36px;
+  border-radius:4px;
+  min-width: auto;
+  padding:8px;
+  color:#757575;
+  border: 1px solid #E0E0E0;
+  background-color: #fff;
+}
+
+.icon-btn:hover:not([disabled]){
+  background-color: #F5F5F5;
+  cursor:pointer;
+}
+
+.icon-btn:focus {
+  border:1px solid #50B83C;
+  color:#50B83C;
+  background-color: #E7F5EC;
+}
+
+.btn-icon{
+  height:20px;
+  width:20px;
+  font-size:20px;
+}

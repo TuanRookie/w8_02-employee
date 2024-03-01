@@ -1,0 +1,56 @@
+.content {
+    background-color: #EEEEEE;
+    height:calc(100vh - 56px);
+    padding: 0 24px;
+}
+
+.employee__header {
+    padding: 24px 0 24px 0;
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.content-title {
+    font-size:24px;
+    font-family: Noto-Sans-Bold;
+}
+
+.employee__body {
+    background-color: white;
+}
+
+.wrapper__toolbar {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.toolbar-left,.toolbar-right{
+    display:flex;
+    gap:16px;
+    align-items: center;
+}
+
+.clear-select{
+    color:red;
+    cursor:pointer;
+}
+
+.search-area {
+    width:260px;
+}
+
+.popup-excel{
+    position: absolute;
+    background-color: #ffffffff;
+    min-width: 150px;
+    border: 1px solid #e0e0e0;
+    padding: 16px 0;
+    right: 0;
+    z-index: 3;
+}
+

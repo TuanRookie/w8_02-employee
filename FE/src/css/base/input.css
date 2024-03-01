@@ -1,0 +1,156 @@
+.input-search {
+  width: 260px;
+  height: 36px;
+  position: relative;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.input-search__filter {
+  width: 260px;
+  height: 36px;
+  padding: 0 12px 0 48px;
+  border: 1px solid #afafaf;
+}
+
+.input-search__filter:focus-visible {
+  border: 1px solid #afafaf;
+}
+
+/* .input{
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #afafaf;
+    height: 36px;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 12px;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 5px;
+    font-size: 14px;
+} */
+
+.input-required {
+  border: 1px solid red;
+}
+
+.readonly {
+  background-color: rgba(181, 190, 192, 0.2);
+}
+
+.input-number {
+  text-align: right;
+  padding-right: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+/* Employee */
+
+.wrapper__input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.input-label {
+  font-family: Noto-Sans-SemiBold;
+}
+
+.input {
+  padding: 0 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  height: 36px;
+  outline: unset;
+  width: 100%;
+  background-color: transparent;
+}
+
+.input-and-icon {
+  position: relative;
+}
+
+.input-with-icon,
+.input-date {
+  padding-right: 8px;
+  font-family: Noto-Sans-Regular;
+}
+
+.input::placeholder {
+  color: #9e9e9e;
+}
+
+.input:hover {
+  outline: 1px solid #bdbdbd;
+}
+
+.input:focus {
+  border: 1px solid #409330;
+}
+
+.require-mark {
+  color: red;
+  padding-left: 2px;
+}
+
+.input-error,
+.input-error:focus {
+  border-color: red;
+}
+
+.input-error-mess {
+  color: red;
+  position: absolute;
+  top: calc(100% + 8px);
+  font-size: 12px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.input-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  color: #9e9e9e;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+}
+
+.input-import {
+  width: 480px;
+  text-align: center;
+}
+
+.input-import::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+/* CHECKBOX INPUT */
+.input-checkbox-list {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  gap: 12px;
+  margin-top: 7px;
+}
+.input-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #409330;
+}

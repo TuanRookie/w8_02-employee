@@ -1,0 +1,42 @@
+.context-menu {
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  padding: 16px 0;
+  border-radius: 4px;
+  min-width: 150px;
+}
+.context-menu-item {
+  height: 48px;
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.context-menu-item:hover {
+  background-color: #dcf1d8;
+}
+
+.context-menu-item-icon {
+  height: 24px;
+  width: 24px;
+  font-size: 24px;
+}
+
+.table-function {
+  display: flex;
+  gap: 5px;
+}
+
+.modify {
+  color: #3395FF;
+}
+
+.dropdown-button{
+    color: #3395FF;
+}
+
+.dropdown-button:active{
+    border: 1px solid #3395FF;
+}

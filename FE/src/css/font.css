@@ -1,0 +1,21 @@
+
+
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Noto-Sans-Bold;
+    src: url(../assets/font/notosans-bold.3ede5aff.woff2);
+}
+
+@font-face {
+    font-family: Noto-Sans-SemiBold;
+    src: url(notosans-semibold.df3e6dc4.woff2);
+}
+
+@font-face {
+    font-family: Noto-Sans-Regular;
+    src: url(notosans-regular.2cb88a13.woff2);
+}

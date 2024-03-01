@@ -1,0 +1,222 @@
+.icon{
+  width: 24px;
+  height: 24px;
+  background: url(../../assets/Sprites.64af8f61.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.icon-header-menu{
+  background-position: -1153px -28px;
+}
+
+.icon-header-kt{
+  width: 56px;
+  height: 56px;
+  background-position: -1745px -881px;
+  scale: 0.6;
+}
+
+.item-icon{
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-home{
+  background-position: -30px -1586px;
+}
+
+.icon-cash {
+  background-position: -73px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-bank {
+  background-position: -117px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-buy {
+  background-position: -161px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-sale {
+  background-position: -204px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-stock{
+  background-position: -291px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-tools{
+  background-position: -336px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-invoice{
+  background-position: -250px -1586px;
+}
+
+.icon-fixed-assets {
+  background-position: -378px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-tax {
+  background-position: -423px -1630px;
+  filter: brightness(200%);
+}
+
+.icon-price {
+  background-position: -467px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-general {
+  background-position: -510px -1630px;
+  filter: brightness(200%);
+}
+
+.icon-report {
+  background-position: -547px -1628px;
+  filter: brightness(200%);
+}
+
+.icon-customer{
+  background-position: -591px -1586px;
+}
+
+.icon-statistics{
+  background-position: -248px -1662px;
+}
+
+.icon-tg{
+  background-position: -30px -355px;
+}
+
+.icon-mr{
+  background-position: -75px -356px;
+}
+
+.icon-three-stripes {
+  background-position: -843px -30px;
+}
+
+.icon-chevron-down-bold {
+  background-position: -1123px -357px;
+  position: relative;
+}
+
+.icon-bell {
+  background-position: -787px -30px;
+}
+
+.icon-chevron-down {
+  background-position: -460px -404px;
+}
+
+.icon-arrow-down-blue {
+  background-position: -893px -356px;
+}
+
+.icon-export{
+  background-position: -144px -199px;
+}
+
+.icon-import{
+  background-position: -480px -200px;
+}
+
+.icon-arrow-left{
+  background-position: -28px -356px;
+}
+
+.icon-arrow-right{
+  background-position: -76px -356px;
+}
+
+.icon-help {
+  background-position: -89px -144px;
+}
+
+.icon-close {
+  background-position: -144px -144px;
+}
+
+.icon-tick{
+  background-position: -1220px -357px;
+}
+
+.icon-bin{
+  background: url(../../assets/icon-sprites.svg)no-repeat -460px -108px;
+}
+
+.icon-nocontent{
+  width: 121px;
+	height: 84px;
+  background: url(../../assets/Sprites.64af8f61.svg)no-repeat -1667px -632px;
+  border: unset;
+}
+
+.icon-warning{
+  background-position: -593px -145px;
+  scale: 1.5;
+}
+
+.icon-search {
+  width: 22px;
+	height: 22px;
+  background: url(../../assets/Sprites.64af8f61.svg) no-repeat -1041px -89px;
+  border: unset;
+  filter: brightness(150%);
+  }
+
+.icon-reload{
+  width: 20px;
+	height: 21px;
+  background: url(../../assets/Sprites.64af8f61.svg)no-repeat -1098px -90px;
+  border: unset;   
+}
+
+
+
+.pagination-left{
+  width: 24px;
+  height: 24px;
+  background: url(../../assets/Sprites.64af8f61.svg)no-repeat -220px -356px;
+  border: unset; 
+}
+
+.pagination-right{
+  width: 24px;
+  height: 24px;
+  background: url(../../assets/Sprites.64af8f61.svg)no-repeat -267px -356px;
+  border: unset;
+}
+
+.icon-arrow-down{
+  width: 12px;
+	height: 8px;
+  background: url(../../assets/Sprites.64af8f61.svg)no-repeat -178px -364px;
+  border: unset;
+}
+
+.icon-edit{
+  width: 21px;
+	height: 20px;
+  background: url(../../assets/Sprites.64af8f61.svg) no-repeat -1434px -90px;
+  padding: 0 !important;
+}
+
+.icon-delete{
+  width: 18px;
+  height: 18px;
+  background: url(../../assets/icon-sprites.svg)no-repeat -463px -111px;
+  padding: 0 !important;
+}
