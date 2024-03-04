@@ -30,9 +30,6 @@ namespace MISA.WebFresher.MF1773.Demo.Application
             {
                 baseEntity.CreatedBy ??= "Đinh Công Tuấn";
                 baseEntity.CreatedDate ??= DateTime.Now;
-
-                baseEntity.ModifiedBy ??= "Đinh Công Tuấn";
-                baseEntity.ModifiedDate ??= DateTime.Now;
             }
 
             await ValidateCreateBusiness(entity);

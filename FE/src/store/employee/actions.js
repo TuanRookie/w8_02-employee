@@ -90,9 +90,7 @@ const actions = {
         context.dispatch("toggleLoading");
         const res = await axios.get(`${API_BASE_URL}Employees/filter`, {
           headers: {
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem("Token")
-            )}`,
+            Authorization: `Bearer ${token.AccessToken}`,
           },
           params: {
             pageSize: state.filter.pageSize,

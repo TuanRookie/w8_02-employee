@@ -123,7 +123,7 @@ export default {
             setTimeout(() => {
               this.$router.push("/employee");
             }, 1000);
-            localStorage.setItem("Token", JSON.stringify(res.data.Token.AccessToken));
+            localStorage.setItem("Token", JSON.stringify(res.data.Token));
             localStorage.setItem("User", JSON.stringify({ ...res.data.User }));
             break;
         }

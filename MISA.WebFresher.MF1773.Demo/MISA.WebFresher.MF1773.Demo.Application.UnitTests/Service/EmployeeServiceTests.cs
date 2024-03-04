@@ -3,11 +3,13 @@ using MISA.WebFresher.MF1773.Demo.Domain;
 using MISA.WebFresher.MF1773.Demo.Domain.Repository;
 using MISA.WebFresher.MF1773.Demo.Infractructure;
 using NSubstitute;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Dapper.SqlMapper;
 
 namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
 {
@@ -31,7 +33,7 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
             EmployeeService = Substitute.For<EmployeeService>(EmployeeRepository, EmployeeValidate, Mapper, DepartmentRepository, UnitOfWork);
         }
         /// <summary>
-        /// Test ham InsertAsync entity.FixedAsset not empty
+        /// Test ham InsertAsync entity.Employee not empty
         /// </summary>
         /// <returns></returns>
         ///  CreatedBy: DCTuan 23/02/2024
@@ -50,6 +52,30 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
             //Assert
             Assert.That(employee.EmployeeId, Is.Not.EqualTo(Guid.Empty));
         }
+        /// <summary>
+        /// Test ham InsertAsync không có CreatedBy
+        /// </summary>
+        /// <returns></returns>
+        ///  CreatedBy: DCTuan 23/02/2024
+        [Test]
+        public async Task InsertAsync_EmployeeAuditNull_EmployeeAuditNotNull()
+        {
+            //Arrange
+            var employeeCreateDto = new EmployeeCreateDto();
+
+            var employee = new Employee()
+            {
+                EmployeeId = Guid.NewGuid()
+            };
+
+            EmployeeService.MapCreateDtoToEntity(employeeCreateDto).Returns(employee);
+
+            //Act
+            var rerult = await EmployeeService.InsertAsync(employeeCreateDto);
+
+            //Assert
+            Assert.That(employee.CreatedBy, Is.EqualTo("Đinh Công Tuấn"));
+        }
 
         /// <summary>
         /// Test ham InsertAsync thêm thành công
@@ -57,66 +83,48 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
         /// <returns></returns>
         ///  CreatedBy: DCTuan 23/02/2024
         [Test]
-        public async Task InsertAsync_Success_ReturnEmployeeDto()
+        public async Task InsertAsync_ValidInput_Success()
         {
             //Arrange
             var employeeCreateDto = new EmployeeCreateDto();
             var employee = new Employee();
             employee.EmployeeId = Guid.NewGuid();
-            var employeeDto = new EmployeeDto();
 
             EmployeeService.MapCreateDtoToEntity(employeeCreateDto).Returns(employee);
-            EmployeeService.MapEntityToDto(employee).Returns(employeeDto);
 
             //Act
             var rerult = await EmployeeService.InsertAsync(employeeCreateDto);
+
             //Assert
-            Assert.That(rerult, Is.EqualTo(employeeDto));
+            await EmployeeService.Received(1).ValidateCreateBusiness(employee);
+
+            await EmployeeRepository.Received(1).InsertAsync(employee);
         }
 
         /// <summary>
-        /// Test ham InsertAsync th truyen null
+        /// Test ham UpdateAsync không có ModifiedBy
         /// </summary>
         /// <returns></returns>
         ///  CreatedBy: DCTuan 23/02/2024
         [Test]
-        public async Task InsertAsync_ParamNull()
+        public async Task UpdateAsync_ValidInput_Success()
         {
             //Arrange
-            var employeeCreateDto = new EmployeeCreateDto();
-
-            //Act &&  Assert
-
-            var exception = Assert.ThrowsAsync<NullReferenceException>(async () => await EmployeeService.InsertAsync(employeeCreateDto));
-            Assert.That(exception.Message, Is.EqualTo("Object reference not set to an instance of an object."));
-        }
-
-        /// <summary>
-        /// Test ham UpdateAsyn success return not null
-        /// </summary>
-        /// <returns></returns>
-        ///  CreatedBy: DCTuan 23/02/2024
-        [Test]
-        public async Task UpdateAsync_Success_ReturnNotNull()
-        {
-            //Arrange
-            var id = Guid.NewGuid();
             var employeeUpdateDto = new EmployeeUpdateDto();
-            var employee = new Employee()
-            {
-                EmployeeId = Guid.NewGuid()
-            }; var employeeDto = new EmployeeDto()
-            {
-                EmployeeId = Guid.NewGuid()
-            };
+            var employee = new Employee();
+            var id = new Guid();
+            var newEmployee = new Employee();
+
             EmployeeRepository.GetAsync(id).Returns(employee);
-            EmployeeService.MapEntityToDto(null).Returns(employeeDto);
+            EmployeeService.MapUpdateDtoToEntity(employeeUpdateDto,employee).Returns(newEmployee);
 
             //Act
             var rerult = await EmployeeService.UpdateAsync(id, employeeUpdateDto);
 
             //Assert
-            Assert.That(rerult, Is.Not.EqualTo(null));
+            await EmployeeService.Received(1).ValidateUpdateBusiness(newEmployee);
+
+            await EmployeeRepository.Received(1).UpdateAsync(id, newEmployee);
         }
         
         /// <summary>
@@ -125,29 +133,26 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
         /// <returns></returns>
         /// CreatedBy: DCTuan 27/02/2024
         [Test]
-        public async Task UpdateAsync_False_ReturnNull()
+        public async Task UpdateAsync_EmployeeAuditNull_EmployeeAuditNotNull()
         {
             //Arrange
-            var id = Guid.NewGuid();
             var employeeUpdateDto = new EmployeeUpdateDto();
-            var employee = new Employee()
-            {
-                EmployeeId = Guid.NewGuid()
-            }; var employeeDto = new EmployeeDto()
-            {
-                EmployeeId = Guid.NewGuid()
-            };
-            /* EmployeeRepository.GetAsync(id).Returns(employee);
-             EmployeeService.MapEntityToDto(null).Returns(employeeDto);*/
+            var employee = new Employee();
+            var id = new Guid();
+            var newEmployee = new Employee();
+
+            EmployeeRepository.GetAsync(id).Returns(employee);
+            EmployeeService.MapUpdateDtoToEntity(employeeUpdateDto, employee).Returns(newEmployee);
 
             //Act
             var rerult = await EmployeeService.UpdateAsync(id, employeeUpdateDto);
 
             //Assert
-            Assert.That(rerult, Is.EqualTo(null));
+            Assert.That(employee.ModifiedBy, Is.EqualTo("Đinh Công Tuấn"));
         }
+       
         /// <summary>
-        /// Test ham DeleteAsyn success return true
+        /// Test ham DeleteAsync  trả về true
         /// </summary>
         /// <returns></returns>
         /// CreatedBy: DCTuan 27/02/2024
@@ -155,96 +160,80 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
         public async Task DeleteAsync_Success_ReturnTrue()
         {
             //Arrange
-            var id = Guid.NewGuid();
-            Employee employee = new Employee()
-            {
-                EmployeeId = Guid.NewGuid(),
-            };
+            var employee = new Employee();
+            EmployeeRepository.GetAsync(employee.EmployeeId).Returns(employee);
+            EmployeeRepository.DeleteAsync(employee.EmployeeId).Returns(true);
+
             //Act
-            EmployeeRepository.DeleteAsync(id).Returns(true);
-            var rerult = await EmployeeService.DeleteAsync(employee.EmployeeId);
+            var reslut = await EmployeeService.DeleteAsync(employee.EmployeeId);
 
             //Assert
-            Assert.That(rerult, Is.EqualTo(true));
-            await EmployeeRepository.Received(1).GetAsync(id);
+            Assert.That(reslut, Is.EqualTo(true));
+            await EmployeeRepository.Received(1).GetAsync(employee.EmployeeId);
             await EmployeeRepository.Received(1).DeleteAsync(employee.EmployeeId);
         }
         /// <summary>
-        /// Test ham DeleteAsyn False return false
+        /// Test hamf DeleteManyAsync trả về true
         /// </summary>
         /// <returns></returns>
         /// CreatedBy: DCTuan 27/02/2024
         [Test]
-        public async Task DeleteAsync_False_ReturnFalse()
+        public async Task DeleteManyAsync_Success_ReturnTrue()
         {
             //Arrange
-            var id = Guid.NewGuid();
-            Employee employee = new Employee()
-            {
-                EmployeeId = Guid.NewGuid(),
-            };
-            //Act
-            EmployeeRepository.DeleteAsync(null).Returns(true);
-            var rerult = await EmployeeService.DeleteAsync(id);
-            //Assert
-            Assert.That(rerult, Is.EqualTo(false));
-            await EmployeeRepository.Received(1).GetAsync(id);
-            await EmployeeRepository.Received(1).DeleteAsync(null);
-        }
+            List<Guid> ids = new List<Guid>();
+            var listEmployee = new List<Employee>();
+            EmployeeRepository.GetByListIdAsync(ids).Returns(listEmployee);
+            EmployeeRepository.DeleteManyAsync(ids).Returns(true);
 
-        /// <summary>
-        /// Test ham DeleteAsyn false return Empty
-        /// </summary>
-        /// <returns></returns>
-        /// CreatedBy: DCTuan 27/02/2024
-        [Test]
-        public async Task DeleteManyAsync_False_ReturnEmpty()
-        {
-            //Arrange
-            var ids = new List<Guid>();
-            var id1 = Guid.NewGuid();
-            var id2 = Guid.NewGuid();
-            ids.Add(id1);
-            ids.Add(id2);
-            Employee employee = new Employee()
-            {
-                EmployeeId = Guid.NewGuid(),
-            };
             //Act
-            var rerult = await EmployeeService.DeleteManyAsync(ids);
+            var reslut = await EmployeeService.DeleteManyAsync(ids);
 
             //Assert
-            Assert.That(rerult, Is.Empty);
+            Assert.That(reslut, Is.EqualTo(true));
             await EmployeeRepository.Received(1).GetByListIdAsync(ids);
-            await EmployeeRepository.Received(0).DeleteManyAsync(null);
+            await EmployeeRepository.Received(1).DeleteManyAsync(ids);
         }
         /// <summary>
-        /// Test ham DeleteAsyn success return Empty
+        /// Test hàm ExportAllAsync trả về kết quả file excel
         /// </summary>
         /// <returns></returns>
-        /// CreatedBy: DCTuan 27/02/2024
         [Test]
-        public async Task DeleteManyAsync_Success_ReturnEmpty()
+        public async Task ExportAllAsync_Success_ReturnFile()
         {
             //Arrange
-            var ids = new List<Guid>();
-            var id1 = Guid.NewGuid();
-            var id2 = Guid.NewGuid();
-            ids.Add(id1);
-            ids.Add(id2);
-            var entitys = new List<Employee>();
-            Employee employee1 = new Employee();
-            Employee employee2 = new Employee();
-            entitys.Add(employee1);
-            entitys.Add(employee2);
-            EmployeeRepository.GetByListIdAsync(ids).Returns(entitys);
+            List<Employee> listEmployee = new List<Employee>();
+            EmployeeRepository.GetAllAsync().Returns(listEmployee);
+            EmployeeService.ExportExcelAsync(listEmployee);
+
             //Act
-            var rerult = await EmployeeService.DeleteManyAsync(ids);
+            var reslut = await EmployeeService.ExportAllAsync();
 
             //Assert
-            Assert.That(rerult.Count, Is.EqualTo(2));
-            await EmployeeRepository.Received(1).GetByListIdAsync(ids);
-            await EmployeeRepository.Received(1).DeleteManyAsync(entitys);
+            await EmployeeRepository.Received(1).GetAllAsync();
+           
+        }
+        /// <summary>
+        /// Test hàm GetEmployeePagingAsync trả về kết quả EmployeePaging(tổng số trang, tổng số bản ghi, Trang hiện tại, dữ liệu phân trang)
+        /// </summary>
+        /// <returns></returns>
+        [Test]
+        public async Task GetEmployeePagingAsync_Success_ReturnEmployeePaging()
+        {
+            //Arrange
+            var pageSize = new int();
+            var pageNumber = new int();
+            string employeeFilter = "";
+            EntitisPaging<Employee> entitisPaging = new EntitisPaging<Employee>();
+
+            EmployeeRepository.GetEntityPagingAsync(pageSize, pageNumber, employeeFilter).Returns(entitisPaging);
+            Mapper.Map<List<EmployeeDto>>(entitisPaging.Data);
+
+            //Act
+            var result = await EmployeeService.GetEmployeePagingAsync(pageSize, pageNumber, employeeFilter);
+
+            //Assert
+            await EmployeeRepository.Received(1).GetEntityPagingAsync(pageSize,pageNumber,employeeFilter);
         }
     }
 }

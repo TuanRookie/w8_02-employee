@@ -35,7 +35,7 @@ namespace MISA.WebFresher.MF1773.Demo.API.Controllers
         /// <CreatedDate>(25/12/2023)</CreatedDate> 
         [HttpGet]
         [Route("{id}")]
-        public async Task<TDto?> GetCustomerAsync(Guid
+        public async Task<TDto?> GetAsync(Guid
             id)
         {
             var result = await BaseReadOnlyService.GetAsync(id);
