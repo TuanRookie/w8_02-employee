@@ -257,5 +257,6 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
             await EmployeeRepository.Received(2).GetNewEmployeeCode();
         }
 
+        
     }
 }

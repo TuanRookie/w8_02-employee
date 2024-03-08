@@ -120,6 +120,12 @@
   <data name="EmployeeCodeNotFound" xml:space="preserve">
     <value />
   </data>
+  <data name="ExceptionExtension" xml:space="preserve">
+    <value>File nhập khẩu không đúng định dạng cho phép</value>
+  </data>
+  <data name="ExceptionNotFile" xml:space="preserve">
+    <value>File nhập khẩu không được để trống</value>
+  </data>
   <data name="ExceptionNotFound" xml:space="preserve">
     <value>Không tìm thấy tài nguyên</value>
   </data>

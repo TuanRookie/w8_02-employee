@@ -330,11 +330,11 @@ namespace MISA.WebFresher.MF1773.Demo.Application
         {
             if (fileImport == null || fileImport.Length <= 0)
             {
-                throw new ValidateException("File nhập khẩu không được để trống");
+                throw new ValidateException(Resource.ExceptionNotFile);
             }
             if (!Path.GetExtension(fileImport.FileName).Equals(".xlsx", StringComparison.OrdinalIgnoreCase))
             {
-                throw new ValidateException("File nhập khẩu không đúng định dạng cho phép");
+                throw new ValidateException(Resource.ExceptionExtension);
 
             }
         }

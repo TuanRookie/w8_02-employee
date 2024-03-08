@@ -133,6 +133,24 @@ namespace MISA.WebFresher.MF1773.Demo.Domain.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File nhập khẩu không đúng định dạng cho phép.
+        /// </summary>
+        public static string ExceptionExtension {
+            get {
+                return ResourceManager.GetString("ExceptionExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File nhập khẩu không được để trống.
+        /// </summary>
+        public static string ExceptionNotFile {
+            get {
+                return ResourceManager.GetString("ExceptionNotFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Không tìm thấy tài nguyên.
         /// </summary>
         public static string ExceptionNotFound {
