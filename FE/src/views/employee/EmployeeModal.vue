@@ -48,6 +48,7 @@
                 :tabIndex="2"
                 @isError="checkError"
                 @blur="validateData"
+
               />
               <BaseInput
                 :inputLabel="fieldName.employeeName"
@@ -57,6 +58,7 @@
                 :errorMess="errorMessage.emptyEmployeeName"
                 :tabIndex="3"
                 @isError="checkError"
+                :orError="this.errors.FullName!==undefined"
               />
             </div>
             <BaseCombobox
@@ -70,6 +72,7 @@
               @selectAction="selectDepartment"
               :tabIndex="6"
               @isError="checkError"
+              :orError="this.errors.DepartmentName!==undefined"
             />
             <BaseInput
               :inputLabel="fieldName.employeePosition"
@@ -86,7 +89,7 @@
                 inputWidth="w-40"
                 :errorMess="errorMessage.invalidDateOfBirth"
                 :tabIndex="4"
-                @isError="checkError"
+                :orError="this.errors.DateOfBirth!==undefined"
                 inputType="date"
               />
               <div class="input-wrapper flex-1">
@@ -145,6 +148,7 @@
                 :errorMess="errors.IdentityNumber"
                 :labelTooltip="toolTip.identityNumber"
                 :tabIndex="7"
+                :orError="this.errors.IdentityNumber!==undefined"
               />
               <BaseInput
                 v-model="identityDate"
@@ -153,6 +157,7 @@
                 :errorMess="errorMessage.invalidIdentityDate"
                 :tabIndex="8"
                 inputType="date"
+                :orError="this.errors.IdentityDate!==undefined"
               />
             </div>
             <BaseInput
@@ -178,7 +183,7 @@
               v-model="employee.PhoneNumber"
               :errorMess="errors.PhoneNumber"
               :tabIndex="13"
-              @isError="checkError"
+              :orError="this.errors.PhoneNumber!==undefined"
             />
             <BaseInput
               :inputLabel="fieldName.landlineNumber"
@@ -188,6 +193,7 @@
               :errorMess="errors.LandlineNumber"
               :placeHolder="placeHolder.landlineNumber"
               :tabIndex="12"
+              :orError="this.errors.LandlineNumber!==undefined"
             />
             <BaseInput
               :inputLabel="fieldName.email"
@@ -197,7 +203,7 @@
               :errorMess="errorMessage.invalidEmail"
               :placeHolder="placeHolder.email"
               :tabIndex="14"
-              @isError="checkError"
+              
             />
             <div class="w-25"></div>
           </div>
@@ -208,6 +214,7 @@
               v-model="employee.BankAccount"
               :errorMess="errors.BankAccount"
               :tabIndex="15"
+
             />
             <BaseInput
               :inputLabel="fieldName.bankName"
@@ -405,6 +412,7 @@ export default {
         if (this.employee.DateOfBirth > currentDate) {
           this.errors.DateOfBirth = RResource.ErrorMessage.invalidDateOfBirth;
         }
+         console.log("text",this.errors.DateOfBirth)
       }
 
       //chuyển empty thành null

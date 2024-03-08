@@ -10,9 +10,10 @@
         :class="[
           'input',
           {
-            'input-error': isError,
+            'input-error': isError || orError,
             'input-date': inputType == 'date',
             'input-with-icon': icon,
+            
           },
         ]"
         :tabindex="tabIndex"
@@ -43,6 +44,7 @@ export default {
     "icon",
     "labelTooltip",
     "isReadOnly",
+    "orError",
   ],
   emits: ["update:modelValue", "isError"],
   methods: {

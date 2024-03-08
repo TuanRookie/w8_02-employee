@@ -33,7 +33,7 @@ namespace MISA.WebFresher.MF1773.Demo.Application.Service
             }
         }
 
-        public async Task<bool> UpdateServiceAsyns(User user, Guid userId)
+        public async Task<bool> UpdateServiceAsync(User user, Guid userId)
         {
             var res = await _userRepository.UpdateAsync(user, userId);
             return res;

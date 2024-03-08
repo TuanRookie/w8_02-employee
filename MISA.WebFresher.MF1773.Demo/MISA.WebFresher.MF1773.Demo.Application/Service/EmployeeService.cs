@@ -93,7 +93,9 @@ namespace MISA.WebFresher.MF1773.Demo.Application
 
         public async Task<string> GetNewEmployeeCode()
         {
-            return await _employeeRepository.GetNewEmployeeCode();
+            var result = await _employeeRepository.GetNewEmployeeCode();
+
+            return result;
         }
 
         public override byte[] ExportExcelAsync(List<Employee> data)
@@ -228,8 +230,9 @@ namespace MISA.WebFresher.MF1773.Demo.Application
                                 Address = worksheet?.Cells[row, 8]?.Value?.ToString()?.Trim(),
                                 DepartmentName = worksheet?.Cells[row, 9]?.Value?.ToString()?.Trim(),
                                 DepartmentId = await ConvertDepartmentId(worksheet?.Cells[row, 9]?.Value?.ToString()?.Trim()),
-
-                            };
+                                CreatedBy = "Đinh Công Tuấn",
+                                CreatedDate = DateTime.Now,
+                        };
 
 
                             //Kiểm tra trùng mã

@@ -5,6 +5,7 @@ import axios from "axios";
 import state from "./state";
 import RResource from "@/js/RResource";
 import router from "@/routers/router";
+import DialogAction from "../../enums/dialogAction";
 const actions = {
   /**
    * Đặt tiêu đề cho form nhân viên
@@ -101,7 +102,7 @@ const actions = {
         context.dispatch("toggleLoading");
         context.commit("getEmployee", res.data);
       } catch (error) {
-        console.error(error);
+        console.log(this.error)
       }
     }
   },
@@ -307,7 +308,6 @@ const actions = {
         { headers: { "Content-Type": "multipart/form-data" } }
       );
       context.commit("getImportEmployee", result.data);
-      context.dispatch("getEmployee");
     } catch (error) {
       console.log(error);
     } finally {
@@ -329,7 +329,18 @@ const actions = {
             break;
         }
       } catch (error) {
-        handleException(error, context);
+        if(this.error===undefined){
+          console.log("1",this.error)
+          context.dispatch("setDialog", {
+            type: "error",
+            title: RResource.Dialog.errorServer,
+            message: RResource.AlertMessage.errorServer,
+            action: DialogAction.DEFAULT,
+          });
+        }else{
+          handleException(error, context);
+        }
+        
       }
     }
     let expriedRefeshTokenString = token.ExpiredRefreshToken;
@@ -337,7 +348,7 @@ const actions = {
     if (token && expriedRefeshToken <= now) {
       router.push("/login");
       context.dispatch("setAlert", {
-        type: "success",
+        type: "error",
         message: RResource.AlertMessage.accessTokenExpired,
       });
       localStorage.setItem("Token", JSON.stringify(null));

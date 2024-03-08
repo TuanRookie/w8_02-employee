@@ -59,13 +59,13 @@
             :mapData="mapData"
             :isContext="false"
           />
-          <ImportResult
-            :countImportSuccess="countImportSuccess"
-            :countImportFailure="countImportFailure"
-            :fileImport="fileImport"
-            :urlImport="urlImport"
+          <BaseTable
             v-if="this.nextPage == 2"
-          ></ImportResult>
+            :headers="headers"
+            :dataList="importEmployee"
+            :mapData="mapData"
+            :isContext="false"
+          />
         </div>
       </div>
       <div class="import__footer">
@@ -107,7 +107,7 @@
             btnText="Thực hiện"
             id="btn-import-next"
             iconRight="iconRight"
-            @click="onClickNextPage"
+            @click="onClickPerform"
           ></BaseButton>
           <BaseButton
             icon="fa-solid fa-ban"
@@ -145,7 +145,6 @@ export default {
       excelImport: RResource.ExcelImport,
       nextPage: 0,
       fileImport: "",
-      dataImport: [],
       countImportSuccess: null,
       countImportFailure: null,
       headers: [
@@ -189,55 +188,38 @@ export default {
     ...mapActions([
       "toggleImport",
       "importToExcel",
-      "setFileImport",
-      "getImportEmployee",
+      "getEmployee",
     ]),
-    /**
-     * Đóng mở form nhập khẩu
-     * Author: DCTuan (11/01/2024)
-     */
-    escImport() {
-      this.toggleImport();
-      this.getImportEmployee([]);
-    },
-    /**
-     * Cập nhật file Import
-     * @param {*} e
-     * Author: DCTuan (11/01/2024)
-     */
-    onChange(e) {
-      this.setFileImport(e.target.files[0]);
-    },
-    /**
-     * Nhập khẩu bằng Excel
-     * Author: DCTuan (11/01/2024)
-     */
-    handleFileInputClick() {
-      this.importToExcel();
-    },
 
     /**
      * Nhảy về trang trước
-     * Author: LQHUY(20/1/2024)
+     * Author: DCTuan (11/01/2024)
      */
     onClickPrevPage() {
       this.nextPage--;
     },
     /**
      * Nhảy đến trang sau
-     * Author: LQHUY(20/1/2024)
+     * Author: DCTuan (11/01/2024)
      */
-    onClickNextPage() {
-      this.importToExcel();
+    async onClickNextPage() {
+      await this.importToExcel();
+      await this.nextPage++;
+    },
+    /**
+     * Nhảy đến trang sau
+     * Author: DCTuan (11/01/2024)
+     */
+    onClickPerform() {
+      this.getEmployee();
       this.nextPage++;
     },
     /**
      * Hủy khi hoàn tất hoặc bỏ
-     * Author: LQHUY(20/1/2024)
+     * Author: DCTuan (11/01/2024)
      */
     onClickCancelImport() {
       this.toggleImport();
-      this.$emit("loadData");
     },
 
     mapData(emp) {

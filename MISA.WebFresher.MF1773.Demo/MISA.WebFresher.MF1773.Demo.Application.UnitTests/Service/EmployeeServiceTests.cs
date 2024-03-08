@@ -6,6 +6,7 @@ using NSubstitute;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -198,6 +199,7 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
         /// Test hàm ExportAllAsync trả về kết quả file excel
         /// </summary>
         /// <returns></returns>
+        /// CreatedBy: DCTuan 27/02/2024
         [Test]
         public async Task ExportAllAsync_Success_ReturnFile()
         {
@@ -217,6 +219,7 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
         /// Test hàm GetEmployeePagingAsync trả về kết quả EmployeePaging(tổng số trang, tổng số bản ghi, Trang hiện tại, dữ liệu phân trang)
         /// </summary>
         /// <returns></returns>
+        /// CreatedBy: DCTuan 27/02/2024
         [Test]
         public async Task GetEmployeePagingAsync_Success_ReturnEmployeePaging()
         {
@@ -235,5 +238,24 @@ namespace MISA.WebFresher.MF1773.Demo.Application.UnitTests
             //Assert
             await EmployeeRepository.Received(1).GetEntityPagingAsync(pageSize,pageNumber,employeeFilter);
         }
+
+        /// <summary>
+        /// Test ham GetNewEmployeeCode trả về EmployeeeCode mới
+        /// </summary>
+        /// <returns></returns>
+        /// CreatedBy: DCTuan 27/02/2024
+        [Test]
+        public async Task GetNewEmployeeCode_Success_ReturnNewEmployeeCode()
+        {
+            //Arrange
+            EmployeeRepository.GetNewEmployeeCode();
+
+            //Act
+            var result = await EmployeeService.GetNewEmployeeCode();
+
+            //Assert
+            await EmployeeRepository.Received(2).GetNewEmployeeCode();
+        }
+
     }
 }

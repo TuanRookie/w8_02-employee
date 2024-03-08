@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using MISA.WebFresher.MF1773.Demo.Domain;
 using System;
@@ -29,7 +30,6 @@ namespace MISA.WebFresher.MF1773.Demo.Application
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role,user.Role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                //new Claim("Id",user.UserId.ToString())
             };
 
             var TokenValidityInMinutes = double.Parse(_config["Jwt:TokenValidityInMinutes"]);
@@ -82,7 +82,7 @@ namespace MISA.WebFresher.MF1773.Demo.Application
         /// <param name="authClaims"></param>
         /// <returns>JwtSecurityToken</returns>
         /// Created By: DCTuan(29/02/2024)
-        private JwtSecurityToken CreateToken(List<Claim> authClaims)
+        public JwtSecurityToken CreateToken(List<Claim> authClaims)
         {
             var key = _config["Jwt:Key"];
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));

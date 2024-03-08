@@ -83,7 +83,7 @@ export default {
           employeeFilter: this.filter.employeeFilter,
         });
         this.getEmployee();
-      }, 500);
+      }, 2000);
     },
 
     /**

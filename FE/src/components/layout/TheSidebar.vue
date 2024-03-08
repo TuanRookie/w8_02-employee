@@ -11,7 +11,7 @@
           <div class="item-icon">
             <div class="icon icon-home"></div>
           </div>
-          <div v-if="zoomSidebar" class="item-title">{{ SideBarItem.dashboard }}</div>
+          <div v-if="zoomSidebar" class="item-title">{{ SideBarItem.employee }}</div>
         </a>
       </router-link>
 
@@ -101,14 +101,14 @@
         </a>
       </router-link>
 
-      <router-link to="/customer" style="text-decoration: none">
-        <a href="/customer" class="menu-item">
+      
+        <a href="" class="menu-item">
           <div class="item-icon">
             <div class="icon icon-customer"></div>
           </div>
           <div v-if="zoomSidebar" class="item-title">{{ SideBarItem.customer }}</div>
         </a>
-      </router-link>
+      
 
       <router-link to="statistics" style="text-decoration: none">
         <a href="/statistics" class="menu-item">

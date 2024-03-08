@@ -15,6 +15,7 @@
       :placeHolder="placeHolder"
       icon="combobox-icon icofont-rounded-down"
       @isError="$emit('isError', isError)"
+      :orError="orError"
     />
     <div
       v-click-outside="hideDataList"
@@ -56,6 +57,7 @@ export default {
     "labelToolTip",
     "placeHolder",
     "isTick",
+    "orError",
   ],
   emits: ["selectAction", "isError", "update:modelValue"],
   computed: {

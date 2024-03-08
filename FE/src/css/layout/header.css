@@ -56,3 +56,7 @@
     font-size: 14px;
     cursor: pointer;
 }
+.user-action-item:hover{
+    background-color: #EEEEEE;
+    border-radius: 4px;
+}

@@ -126,7 +126,8 @@ const Dialog = {
   deleteBatchEmployeeMessage: "Bạn có chắc xoá những nhân viên được chọn?",
   changeDataTitle: "Dữ liệu thay đổi",
   changeDataMessage: "Lưu lại những thay đổi?",
-  invalid:"Lỗi người dùng",
+  invalid:"Lỗi nhập dữ liệu",
+  errorServer:"Lỗi hệ thống",
 };
 
 const PlaceHolder = {
@@ -141,6 +142,7 @@ const AlertMessage = {
   editEmployeeSuccess: "Sửa nhân viên thành công.",
   deleteEmployeeSuccess: "Xóa nhân viên thành công.",
   accessTokenExpired:"Token hết hạn vui lòng đăng nhập lại",
+  errorServer:"Kết nối đến máy chủ bị gián đoạn,vui lòng thử lại sau",
 };
 
 const ErrorMessage = {
@@ -158,7 +160,7 @@ const ErrorMessage = {
 
 const SidebarItem = {
   accountant:"Kế toán",
-  dashboard:"Tổng quan",
+  employee:"Nhân viên",
   cash:"Tiền mặt",
   bank:"Tiền gửi",
   buy:"Mua hàng",

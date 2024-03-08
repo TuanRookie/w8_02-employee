@@ -5,7 +5,10 @@
   <div class="inputfile-box">
     <input type="file" id="file" class="inputfile" @change="uploadFile" />
     <label for="file" class="text-file">
-      <span id="file-name" class="file-box">{{ text.selectAFile }}</span>
+      <span id="file-name" class="file-box" v-if="!importFile">{{
+        text.selectAFile
+      }}</span>
+      <span id="file-name" class="file-box" v-else>{{ importFile.name }}</span>
       <span class="file-button">{{ text.select }}</span>
     </label>
   </div>
@@ -19,7 +22,7 @@ import { mapActions, mapGetters } from "vuex";
 import RResource from "../../js/RResource";
 export default {
   name: "ImportSelectFile",
-  computed: mapGetters(["importEmployee"]),
+  computed: mapGetters(["importFile"]),
   data() {
     return {
       text: RResource.Text,
