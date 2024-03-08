@@ -120,18 +120,16 @@ export default {
         switch (res.status) {
           case 200:
             location.reload();
-            setTimeout(() => {
-              this.$router.push("/employee");
-            }, 1000);
+            this.$router.push("/employee");
             localStorage.setItem("Token", JSON.stringify(res.data.Token));
             localStorage.setItem("User", JSON.stringify({ ...res.data.User }));
             break;
         }
       } catch (error) {
         console.log("check", error);
-        this.errorMessageLogin = Object.values(error.response.data.DevMessage).join(
-          ""
-        );
+        this.errorMessageLogin = Object.values(
+          error.response.data.DevMessage
+        ).join("");
       }
     },
   },
