@@ -145,6 +145,27 @@
   background-position: -89px -144px;
 }
 
+.icon-help1{
+  background: url(../../assets/help-153.svg)
+}
+
+.icon-cam{
+  background: url(../../assets/red-24018.svg);
+  scale: 0.8;
+}
+
+.icon-mt-phai{
+  background: url(../../assets/mtphai.svg);
+}
+
+.icon-mt-trai{
+  background: url(../../assets/mttrai.svg);
+}
+
+.icon-mt-quit{
+  background: url(../../assets/quit.svg);
+}
+
 .icon-close {
   background-position: -144px -144px;
 }

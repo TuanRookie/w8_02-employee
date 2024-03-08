@@ -210,6 +210,21 @@
 .btn-secondary:active {
   background-color:#E0E0E0;
 }
+
+
+.btn-import {
+  background-color:rgb(250, 250, 250);
+  color:black;
+  border: 1px solid rgb(224, 224, 224);
+}
+.btn-import:hover:not([disabled]) {
+  background-color:#EEEEEE;
+  cursor:pointer;
+}
+.btn-import:active {
+  background-color:#E0E0E0;
+}
+
 /**/
 .icon-btn{
   width:36px;

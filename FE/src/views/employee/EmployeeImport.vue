@@ -70,23 +70,23 @@
       </div>
       <div class="import__footer">
         <BaseButton
-          icon="fa-regular fa-circle-question"
-          :isSecondary="true"
+          icon="icon icon-help1"
+          :isImport="true"
           btnText="Giúp"
           id="btn-import-help"
         ></BaseButton>
         <div v-if="this.nextPage == 0" class="import__footer-rigth">
           <BaseButton
-            icon="fa-solid fa-right-long"
-            :isSecondary="true"
+            icon="icon icon-mt-phai"
+            :isImport="true"
             btnText="Tiếp tục"
             id="btn-import-next"
             iconRight="iconRight"
             @click="onClickNextPage"
           ></BaseButton>
           <BaseButton
-            icon="fa-solid fa-ban"
-            :isSecondary="true"
+            icon="icon icon-cam"
+            :isImport="true"
             btnText="Hủy bỏ"
             id="btn-import-cancel"
             @click="onClickCancelImport"
@@ -95,23 +95,23 @@
 
         <div v-if="this.nextPage == 1" class="import__footer-rigth">
           <BaseButton
-            icon="fa-solid fa-left-long"
-            :isSecondary="true"
+            icon="icon icon-mt-trai"
+            :isImport="true"
             btnText="Quay lại"
             id="btn-import-prev"
             @click="onClickPrevPage"
           ></BaseButton>
           <BaseButton
-            icon="fa-solid fa-file-import"
-            :isSecondary="true"
+            icon="icon icon-mt-phai"
+            :isImport="true"
             btnText="Thực hiện"
             id="btn-import-next"
             iconRight="iconRight"
             @click="onClickPerform"
           ></BaseButton>
           <BaseButton
-            icon="fa-solid fa-ban"
-            :isSecondary="true"
+            icon="icon icon-cam"
+            :isImport="true"
             btnText="Hủy bỏ"
             id="btn-import-cancel"
             @click="onClickCancelImport"
@@ -119,8 +119,8 @@
         </div>
         <div v-if="this.nextPage == 2" class="import__footer-rigth">
           <BaseButton
-            icon="fa-solid fa-ban"
-            :isSecondary="true"
+            icon="icon icon-mt-quit"
+            :isImport="true"
             btnText="Đóng"
             id="btn-import-cancel"
             @click="onClickCancelImport"
@@ -185,11 +185,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions([
-      "toggleImport",
-      "importToExcel",
-      "getEmployee",
-    ]),
+    ...mapActions(["toggleImport", "importToExcel", "getEmployee"]),
 
     /**
      * Nhảy về trang trước
@@ -267,12 +263,12 @@ export default {
   font-size: 14px;
   font-weight: 600;
   font-size: 14px;
-  background-color: #eeeff1;
+  background-color: #ffffff;
 }
 .import__container {
   display: flex;
   height: calc(100% - 48px - 48px);
-  background-color: #eeeff1;
+  background-color: #ffffff;
 }
 .import__sidebar {
   width: 200px;
@@ -313,11 +309,12 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #eeeff1;
+  background-color: #ffffff;
   padding: 0 10px;
 }
 
 .import__footer-rigth {
   display: flex;
+  gap: 8px;
 }
 </style>

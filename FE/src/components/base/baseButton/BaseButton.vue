@@ -3,6 +3,7 @@
     :class="[
       {
         btn: btnText,
+        'btn-import':isImport,
         'btn-secondary': isSecondary,
         'btn-with-icon': icon && btnText,
         'icon-btn': icon && !btnText,
@@ -22,6 +23,7 @@
 export default {
   name: "BaseButton",
   props: [
+    "isImport",
     "isSecondary",
     "btnText",
     "btnToolTip",
