@@ -39,6 +39,10 @@ export default {
     };
   },
   methods: {
+    /**
+     * Click đăng xuất ra khỏi hệ thống
+     * Author: DCTuan (01/03/2024)
+     */
     logOutSystem() {
       console.log("check");
       localStorage.setItem("Token", JSON.stringify(null));
@@ -48,7 +52,6 @@ export default {
         document.title = "Đăng nhập"; // Đặt lại tiêu đề sau khi chuyển hướng
         location.reload();
       });
-      
     },
   },
 };

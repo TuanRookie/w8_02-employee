@@ -222,6 +222,10 @@ export default {
       this.toggleImport();
     },
 
+    /**
+     * Đẩy dữ liệu import vào bảng
+     * Author: DCTuan (11/01/2024)
+     */
     mapData(emp) {
       var arr = [
         emp.EmployeeCode,

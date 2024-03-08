@@ -76,12 +76,20 @@ export default {
     };
   },
   methods: {
+    /**
+     * Click đăng nhập
+     * Author:DcTuan (01/03/2024)
+     */
     onClickLogin() {
       this.validateFormLogin();
       if (this.isCheckLogin) {
         this.loginInSystem();
       }
     },
+    /**
+     * validate dữ liệu
+     * Author:DcTuan (01/03/2024)
+     */
     validateFormLogin() {
       if (
         this.user.Email === "" ||
@@ -114,6 +122,10 @@ export default {
         }
       }
     },
+    /**
+    * Gọi API đăng nhập sau khi validate
+     * Author:DcTuan (01/03/2024)
+     */
     async loginInSystem() {
       try {
         var res = await axios.post(`${API_BASE_URL}Users`, this.user);
